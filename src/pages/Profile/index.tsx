@@ -3,14 +3,13 @@ import { View, Button } from 'react-native';
 
 import { useAuth } from '../../hooks/auth';
 
-const Dashboard: React.FC = () => {
-  const { signOut } = useAuth();
+const Profile: React.FC = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>
-      <Button title="Sair" onPress={signOut} />
+      Profile
     </View>
   );
 };
 
-export default Dashboard;
+export default Profile;
