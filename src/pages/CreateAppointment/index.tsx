@@ -1,12 +1,46 @@
 import React from 'react';
 import { View, Button } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Feather';
 
-const AppointmentCreated: React.FC = () => {
+import { useAuth } from '../../hooks/auth';
+import {
+  Container,
+  Header,
+  BackButton,
+  HeaderTitle,
+  UserAvatar,
+} from './styles';
+import { useCallback } from 'react';
+
+interface RouteParams {
+  providerId: string;
+}
+
+const CreateAppointment: React.FC = () => {
+  const { user } = useAuth();
+  const route = useRoute();
+  const { goBack } = useNavigation();
+  const { providerId } = route.params as RouteParams;
+
+  const navigateBack = useCallback(() => {
+    goBack();
+  }, [goBack]);
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
-      AppointmentCreated
-    </View>
+    <Container>
+      <Header>
+        <BackButton onPress={navigateBack}>
+          <Icon name="chevron-left" size={24} color="#999591" />
+        </BackButton>
+
+        <HeaderTitle>Cabeleileiros</HeaderTitle>
+
+        <UserAvatar source={{ uri: user.avatar_url }} />
+        {providerId}
+      </Header>
+    </Container>
   );
 };
 
-export default AppointmentCreated;
+export default CreateAppointment;
