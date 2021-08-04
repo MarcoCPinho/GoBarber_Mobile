@@ -71,7 +71,7 @@ const CreateAppointment: React.FC = () => {
         setShowDatePicker(false);
       }
 
-      if (date) {        setSelectedDate(date)      }
+      if (date) {        setSelectedDate(date)   }
     },
     [],
   );
