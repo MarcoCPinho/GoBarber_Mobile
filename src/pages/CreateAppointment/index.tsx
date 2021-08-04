@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-use-before-define
 import React, { useEffect, useCallback, useState } from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -31,6 +32,7 @@ interface RouteParams {
 export interface Provider {
   id: string;
   name: string;
+  // eslint-disable-next-line camelcase
   avatar_url: string;
 }
 
@@ -63,7 +65,7 @@ const CreateAppointment: React.FC = () => {
 
   const handleToggleDatePicker = useCallback(() => {
     setShowDatePicker(state => !state);
-  }, [showDatePicker]);
+  }, []);
 
   const handleDateChanged = useCallback(
     (event: any, date: Date | undefined) => {
@@ -71,7 +73,9 @@ const CreateAppointment: React.FC = () => {
         setShowDatePicker(false);
       }
 
-      if (date) {        setSelectedDate(date)   }
+      if (date) {
+        setSelectedDate(date);
+      }
     },
     [],
   );
