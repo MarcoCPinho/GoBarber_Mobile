@@ -28,6 +28,11 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { "allowExpresions": true }
+    ],
     "no-unused-expressions": "off",
     "import/extensions": [
       "error",
